@@ -1,18 +1,10 @@
-import{
-    LOAD_USERS, 
-    GOT_USERS,
-    ADDING_POST,
-    ADDED_POST,
-    ERROR
-  } from '../actions';
+import { combineReducers } from 'redux';
+import { userReducer} from './userReducer';
 
-  let initialState =
-{
-    fetchingData: false,
+export default combineReducers({
+  userReducer
   
-    exData: [],
-    error: null
-  }
+});
 
-  export const exReducer
-  
+
+

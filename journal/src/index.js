@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { thunk } from 'redux-thunk';
-import { logger } from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux';
+import  thunk from 'redux-thunk';
+import  logger from 'redux-logger';
 
 import './index.css';
 import App from './App';
-import { applyMiddleware } from '../../../../../Library/Caches/typescript/3.2/node_modules/redux';
+import rootReducer from './reducers';
+
+
 
 const store = createStore(rootReducer, applyMiddleware(thunk,logger));
 
