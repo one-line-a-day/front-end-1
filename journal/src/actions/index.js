@@ -9,7 +9,7 @@ export const getData =()=>dispatch=>{
     return axios
     .get('https://one-line-a-day-backend.herokuapp.com')
     .then(res=> {
-      console.log(`response: ${res.data}`)
+      console.log(`response: ${res}`)
       return dispatch({type:GOT_DATA, payload: res.data})
     })
     .catch(err=>{

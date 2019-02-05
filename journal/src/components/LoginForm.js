@@ -4,11 +4,10 @@ import './components.css'
 // import { connect } from 'react-redux';
 
 
-class RegisterForm extends React.Component {
+class LoginForm extends React.Component {
     state ={
         username:'',
         password:'',
-        email:''
     }
 
     handleChanges=(e)=>{
@@ -23,7 +22,7 @@ class RegisterForm extends React.Component {
       <div className="register-page">
       <h1>A-Line-A-Day</h1>
     <div className="form-container">
-     <h2>Register Here!</h2>
+     <h2>Login Here!</h2>
      
       <form className="input-fields"> 
         <input 
@@ -44,19 +43,12 @@ class RegisterForm extends React.Component {
           placeholder="Password"
           onChange={this.handleChanges}
         />
-        <input
-          
-          value={this.state.email}
-          name="email"
-          type="text"
-          placeholder="Enter Email"
-          onChange={this.handleChanges}
-          />
         
-        <button type='submit'>Register</button>
         
-          <NavLink to="/login">
-          <h5>Already have an Account? Login here.</h5>
+        <button type='submit'>Login</button>
+        
+          <NavLink to="/">
+          <h5>Dont have an Account? Sign up here.</h5>
           </NavLink>
         
       </form>
@@ -65,5 +57,5 @@ class RegisterForm extends React.Component {
     )
   }
 }
-export default RegisterForm;
+export default LoginForm;
 // export default connect(null,{addSmurf})(RegisterForm);

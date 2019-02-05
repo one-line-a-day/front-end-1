@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { getData } from './actions';
 import {Route} from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
+import LoginForm from './components/LoginForm';
 import './App.css';
+
 
 
 
@@ -16,7 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path="/register" component={RegisterForm}/>
+        <Route exact path="/" component={RegisterForm}/>
+        <Route path="/login" component={LoginForm}/>
+        
       </div>
     );
   }
