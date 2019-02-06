@@ -49,4 +49,76 @@ margin: 60px auto;
       color:white;
       font-size: 70px;
   }
+
+  .timeline-title{
+      font-size: 50px;
+      color:whitesmoke;
+  }
+  .header-container{
+      display:flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background-color:#472285;
+  }
+  .header-text{
+      color:whitesmoke;
+      display:flex;
+
+      
+  }
+
+  .post{
+      color:black;
+        
+  }
+  .post-container{
+    border: 1px solid #472285;
+    width:500px;
+    display:flex;
+    margin: 30px auto;
+    background-color:whitesmoke;
+  }
+  .sub-container{
+      display:flex;
+      width: 350px;
+      justify-content: space-evenly;
+  }
+
+  .timeline-inputs{
+      display:flex;
+      flex-direction: column;
+      border:1px solid #472285;
+      width: 600px;
+      margin:30px auto;
+      
+  }
+  .timeline-container{
+      background-color: whitesmoke;
+  }
+
   
+  .timeline-button{
+    width:120px;
+    height: 30px;
+    background-color:#472285;
+    border:1px solid white;
+    color:whitesmoke;
+  }
+  .line-input{
+      
+      height: 200px;
+      width: 400px;
+      margin:30px auto;
+      display:flex;
+        text-align: center;
+  }
+  .date-input{
+    width:150px;
+    margin:30px auto;
+    text-align: center;
+    
+  }
+
+  .add-title{
+      text-align: center;
+  }

@@ -5,7 +5,11 @@
     GOT_LINES,
     ERROR,
     ADD_USER,
-    ADDED_USER
+    ADDED_USER,
+    LOGIN_ATTEMPT,
+    LOGIN_SUCCESS,
+    ADD_LINE,
+    ADDED_LINE
   } from '../actions';
 
   let initialState =
@@ -14,9 +18,11 @@
    users: [],
    lines:[],
     error: null,
-    addingFriend: false
+    addingFriend: false,
+    loggedIn:false,
+    addingLine:false
   }
-  
+
 
 
   export const userReducer=(state=initialState, action) =>{
@@ -33,7 +39,14 @@
       return { ...state, addingFriend: true };
     case ADDED_USER:
       return { ...state, users: action.payload, addingFriend: false };
-    
+      case ADD_LINE:
+      return { ...state, addingLine: true };
+    case ADDED_LINE:
+      return { ...state, lines: action.payload, addingLine: false };
+      case LOGIN_ATTEMPT:
+      return { ...state, loggedIN: false };
+    case LOGIN_SUCCESS:
+      return { ...state, users: action.payload, loggedIn: true };
     case ERROR:
     return{...state, error:action.payload, fetchingData:false,addingFriend:false}
     default:

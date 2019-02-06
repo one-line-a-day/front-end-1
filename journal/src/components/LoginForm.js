@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './components.css'
 import { withRouter } from 'react-router-dom'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { login } from '../actions';
 
 
 class LoginForm extends React.Component {
@@ -14,6 +15,18 @@ class LoginForm extends React.Component {
     handleChanges=(e)=>{
         this.setState({[e.target.name]:e.target.value})
     }
+
+    login=(e)=>{
+      e.preventDefault();
+        const newLogin={
+          username:this.state.username,
+          password:this.state.password,
+          
+        }
+        this.props.login(newLogin);
+        console.log('Login:',this.props)
+    }
+    
     
 
    
@@ -25,7 +38,7 @@ class LoginForm extends React.Component {
     <div className="form-container">
      <h2>Login Here!</h2>
      
-      <form className="input-fields"> 
+      <form className="input-fields" onSubmit={this.login}> 
         <input 
         type="text"
         placeholder="Username"
@@ -58,5 +71,5 @@ class LoginForm extends React.Component {
     )
   }
 }
-export default withRouter(LoginForm);
-// export default connect(null,{addSmurf})(RegisterForm);
+
+ export default withRouter(connect(null,{login})(LoginForm));
