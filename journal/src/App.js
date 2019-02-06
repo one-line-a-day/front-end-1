@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getData } from './actions';
+import { getUsers } from './actions';
+import { getLines } from './actions';
 import {Route} from 'react-router-dom';
+
+
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+import Timeline from './components/Timeline';
 import './App.css';
 
 
@@ -12,7 +16,8 @@ import './App.css';
 class App extends Component {
 
   componentDidMount(){
-    this.props.getData();
+    this.props.getUsers();
+    this.props.getLines();
       }
 
   render() {
@@ -20,10 +25,10 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={RegisterForm}/>
         <Route path="/login" component={LoginForm}/>
-        
+        <Route path="/timeline" component={Timeline}/>
       </div>
     );
   }
 }
 
-export default connect(null,{getData})(App);
+export default connect(null,{getUsers,getLines})(App);

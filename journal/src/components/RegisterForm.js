@@ -1,31 +1,46 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './components.css'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { addUser } from '../actions';
+import { withRouter } from 'react-router-dom'
+
 
 
 class RegisterForm extends React.Component {
     state ={
+        id:'',
         username:'',
+        email:'',
         password:'',
-        email:''
+        name:'',
     }
 
     handleChanges=(e)=>{
         this.setState({[e.target.name]:e.target.value})
     }
     
+    addUser =(e)=>{
+        e.preventDefault();
+        const newUser={
+          username:this.state.username,
+          password:this.state.password,
+          email:this.state.email
+        }
+        this.props.addUser(newUser);
+        console.log(this.props)
+    }
 
    
     render() {
         
     return (
       <div className="register-page">
-      <h1>A-Line-A-Day</h1>
+      <h1 className="title">ONE-LINE-A-DAY</h1>
     <div className="form-container">
      <h2>Register Here!</h2>
      
-      <form className="input-fields"> 
+      <form className="input-fields" onSubmit ={this.addUser}> 
         <input 
         type="text"
         placeholder="Username"
@@ -55,15 +70,16 @@ class RegisterForm extends React.Component {
         
         <button type='submit'>Register</button>
         
-          <NavLink to="/login">
+        <Link className="link" to="/login">
           <h5>Already have an Account? Login here.</h5>
-          </NavLink>
+          </Link>
         
       </form>
+      
       </div>
       </div>
     )
   }
 }
-export default RegisterForm;
-// export default connect(null,{addSmurf})(RegisterForm);
+
+ export default withRouter(connect(null,{addUser})(RegisterForm));

@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './components.css'
+import { withRouter } from 'react-router-dom'
 // import { connect } from 'react-redux';
 
 
@@ -20,7 +21,7 @@ class LoginForm extends React.Component {
         
     return (
       <div className="register-page">
-      <h1>A-Line-A-Day</h1>
+      <h1 className="title">ONE-LINE-A-DAY</h1>
     <div className="form-container">
      <h2>Login Here!</h2>
      
@@ -47,9 +48,9 @@ class LoginForm extends React.Component {
         
         <button type='submit'>Login</button>
         
-          <NavLink to="/">
+          <Link to="/">
           <h5>Dont have an Account? Sign up here.</h5>
-          </NavLink>
+          </Link>
         
       </form>
       </div>
@@ -57,5 +58,5 @@ class LoginForm extends React.Component {
     )
   }
 }
-export default LoginForm;
+export default withRouter(LoginForm);
 // export default connect(null,{addSmurf})(RegisterForm);

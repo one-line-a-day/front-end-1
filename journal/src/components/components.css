@@ -5,11 +5,7 @@
     height: 800px;
     border: 1px solid #472285 ;
   }
-  h1{
-    color:white;
-    font-size: 70px;
-    
-  }
+  
 
   .input-fields{
     display: flex;
@@ -45,5 +41,12 @@ margin: 60px auto;
       color:white;
       font-size: 30px;
       
+  }
+  .link{
+      color:white;
+  }
+  .title{
+      color:white;
+      font-size: 70px;
   }
   
