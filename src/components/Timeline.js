@@ -56,22 +56,24 @@ class Timeline extends React.Component{
                 name="line"
                 value={this.state.line}
                 type="text"
-                placeholder="New Line"
+                placeholder="Talk About Your Day..."
                 onChange={this.handleChanges}
                 className="line-input"
                 />
+                <h3 className="date">Add Date</h3>
                 <input 
                 name="date"
                 value={this.state.date}
                 type="text"
-                placeholder="Add Date"
+                placeholder="YYYY-MM-DD"
                 onChange={this.handleChanges}
                 className="date-input"
                 />
                 
                 <button className="timeline-button"type='submit' >Add Line</button>
+                
                 </form>
-
+                <h2 className='description'>Your Lines</h2>
                <div className='post-container'>
                 {this.props.lines ? this.props.lines.map(line=>{
                  return(
