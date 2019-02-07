@@ -9,7 +9,8 @@
     LOGIN_ATTEMPT,
     LOGIN_SUCCESS,
     ADD_LINE,
-    ADDED_LINE
+    ADDED_LINE,
+    LOGIN_ERROR
   } from '../actions';
 
   let initialState =
@@ -20,7 +21,8 @@
     error: null,
     addingFriend: false,
     loggedIn:false,
-    addingLine:false
+    addingLine:false,
+    username:''
   }
 
 
@@ -38,17 +40,19 @@
     case ADD_USER:
       return { ...state, addingFriend: true };
     case ADDED_USER:
-      return { ...state, users: action.payload, addingFriend: false };
+      return { ...state, addingFriend: false };
       case ADD_LINE:
       return { ...state, addingLine: true };
     case ADDED_LINE:
-      return { ...state, lines: action.payload, addingLine: false };
+      return { ...state,  addingLine: false };
       case LOGIN_ATTEMPT:
-      return { ...state, loggedIN: false };
+      return { ...state, loggedIn: false };
     case LOGIN_SUCCESS:
-      return { ...state, users: action.payload, loggedIn: true };
+      return { ...state, username:action.payload, loggedIn: true, error:'' };
+      case LOGIN_ERROR:
+    return{...state, error:action.payload, fetchingData:false,addingFriend:false};
     case ERROR:
-    return{...state, error:action.payload, fetchingData:false,addingFriend:false}
+    return{...state,  fetchingData:false,addingFriend:false}
     default:
           return state;
       

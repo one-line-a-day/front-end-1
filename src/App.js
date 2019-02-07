@@ -15,9 +15,10 @@ import './App.css';
 
 class App extends Component {
 
+
+  
   componentDidMount(){
-    this.props.getUsers();
-    this.props.getLines();
+    // this.props.getUsers();
       }
 
   render() {

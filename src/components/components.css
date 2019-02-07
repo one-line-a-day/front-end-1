@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .register-page{
     background-color:#472285;
     text-align: center;
@@ -69,12 +73,13 @@ margin: 60px auto;
 
   .post{
       color:black;
+      text-align: center;
         
   }
   .post-container{
-    border: 1px solid #472285;
-    width:500px;
-    display:flex;
+      
+    height: 100%;
+    width:600px;
     margin: 30px auto;
     background-color:whitesmoke;
   }
@@ -94,6 +99,7 @@ margin: 60px auto;
   }
   .timeline-container{
       background-color: whitesmoke;
+      height: 100%;
   }
 
   
@@ -106,7 +112,7 @@ margin: 60px auto;
   }
   .line-input{
       
-      height: 200px;
+      height: 80px;
       width: 400px;
       margin:30px auto;
       display:flex;
@@ -122,3 +128,26 @@ margin: 60px auto;
   .add-title{
       text-align: center;
   }
+  .error-msg{
+      color: red;
+  }
+  .update-delete{
+      display:flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      text-align: end;
+      align-items: flex-start;
+      width: 600px;
+      font-size:10px;
+      
+     
+      
+  }
+
+  .posts{
+      margin:30px 0;
+      border: 1px solid black;
+      background-color: white;
+     
+  }
+  

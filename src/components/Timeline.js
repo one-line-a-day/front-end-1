@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import './components.css';
-import LoginForm from './LoginForm';
-import { Route } from 'react-router-dom';
-import { addLine } from '../actions';
+import { addLine,getLines } from '../actions';
+import {Link} from 'react-router-dom';
 
 
 
 
 class Timeline extends React.Component{
+    
     constructor(){
         super();
         this.state ={
@@ -26,9 +26,13 @@ class Timeline extends React.Component{
           line:this.state.line,
           date:this.state.date
         }
-        this.props.addLine(newLine);
-        console.log(this.props)
+        this.props.addLine(newLine)
+        console.log('timelineProps:',this.props)
     }
+
+    componentDidMount(){
+        this.props.getLines();
+          }
    
     render(){
        console.log(this.props)
@@ -38,8 +42,10 @@ class Timeline extends React.Component{
                 <div className="header-container">
                     <h1 className="timeline-title">One Line a Day</h1>
                     <div className="sub-container">
-                    <p className="header-text">Welcome, username </p>
+                    <p className="header-text">Welcome, {this.props.username} </p>
+                    <Link to="/login">
                     <p className="header-text">logout</p>
+                    </Link>
                     </div>
 
                 </div>
@@ -66,10 +72,18 @@ class Timeline extends React.Component{
                 <button className="timeline-button"type='submit' >Add Line</button>
                 </form>
 
-               <div>
+               <div className='post-container'>
                 {this.props.lines ? this.props.lines.map(line=>{
                  return(
-                 <div key={line.id} className="post-container"><p className="post">{line.line}</p></div>
+                 <div key={line.id} className="posts">
+                 <div>
+                 <p className="post">{line.line}</p>
+                 </div>
+                 <div className="update-delete">
+                 <p className="dropdown" >Update</p>
+                 <p>Delete</p>
+                 </div>
+                 </div>
                  
                  )
                 }):null} 
@@ -86,10 +100,11 @@ class Timeline extends React.Component{
 const mapStateToProps =state =>({
     
         users: state.userReducer.users,
-        lines: state.userReducer.lines
+        lines: state.userReducer.lines,
+        username: state.userReducer.username
     
 }
 )
 
 
-export default connect(mapStateToProps,{addLine})(Timeline)
+export default connect(mapStateToProps,{addLine,getLines})(Timeline)

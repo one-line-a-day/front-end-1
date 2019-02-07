@@ -23,8 +23,8 @@ class LoginForm extends React.Component {
           password:this.state.password,
           
         }
-        this.props.login(newLogin);
-        console.log('Login:',this.props)
+        this.props.login(newLogin,this.props.history.push)
+        
     }
     
     
@@ -58,10 +58,10 @@ class LoginForm extends React.Component {
           onChange={this.handleChanges}
         />
         
-        
+        <p className="error-msg">{this.props.error}</p>
         <button type='submit'>Login</button>
         
-          <Link to="/">
+          <Link className="link" to="/">
           <h5>Dont have an Account? Sign up here.</h5>
           </Link>
         
@@ -71,5 +71,8 @@ class LoginForm extends React.Component {
     )
   }
 }
+const mapStateToProps=(state)=>({
+error:state.userReducer.error
+})
 
- export default withRouter(connect(null,{login})(LoginForm));
+ export default withRouter(connect(mapStateToProps,{login})(LoginForm));

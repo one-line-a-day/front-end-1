@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import './components.css'
 import { connect } from 'react-redux';
 import { addUser } from '../actions';
-import { withRouter } from 'react-router-dom'
 
 
 
@@ -27,11 +27,11 @@ class RegisterForm extends React.Component {
           password:this.state.password,
           email:this.state.email
         }
-        this.props.addUser(newUser);
+        this.props.addUser(newUser).then(()=>this.props.history.push('/login'));
         console.log(this.props)
     }
 
-   
+
     render() {
         
     return (
@@ -70,9 +70,11 @@ class RegisterForm extends React.Component {
         
         <button type='submit'>Register</button>
         
-        <Link className="link" to="/login">
-          <h5>Already have an Account? Login here.</h5>
-          </Link>
+        
+        
+        <Link className='link' to="/login">
+         <h5> Already have an Account? Login here.</h5>
+          </Link> 
         
       </form>
       
@@ -82,4 +84,4 @@ class RegisterForm extends React.Component {
   }
 }
 
- export default withRouter(connect(null,{addUser})(RegisterForm));
+ export default connect(null,{addUser})(RegisterForm);
