@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './components.css';
 import { addLine,getLines } from '../actions';
 import {Link} from 'react-router-dom';
+import { deletePost } from '../actions';
 
 
 
@@ -33,34 +34,45 @@ class Timeline extends React.Component{
     componentDidMount(){
         this.props.getLines();
           }
+
+    deletePost=(id)=>{
+        this.props.deletePost(id);
+          }
+
+    handleLogout=()=>{
+        localStorage.removeItem('token')
+        localStorage.removeItem('username')
+        this.props.history.push('/login')
+    }
    
     render(){
        console.log(this.props)
+       const username=localStorage.getItem('username');
         return(
             <div className ="timeline-container">
                 
                 <div className="header-container">
+                    
                     <h1 className="timeline-title">One Line a Day</h1>
+                    
                     <div className="sub-container">
-                    <p className="header-text">Welcome, {this.props.username} </p>
-                    <Link to="/login">
-                    <p className="header-text">logout</p>
-                    </Link>
+                    <p className="header-text">Welcome {username}! </p>
+                    <p className="header-text" onClick={this.handleLogout}>Logout</p>
                     </div>
 
                 </div>
 
                 <form className="timeline-inputs" onSubmit={this.addLine}>
-                <h1 className="add-title">Add new Line</h1>
-                <input 
+                <h1 className="add-title">Add new line</h1>
+                <textarea
                 name="line"
                 value={this.state.line}
                 type="text"
-                placeholder="Talk About Your Day..."
+                placeholder="Write a funny quote, crazy milestone, or what you ate for dinner!"
                 onChange={this.handleChanges}
-                className="line-input"
-                />
-                <h3 className="date">Add Date</h3>
+                className="text-input">
+                </textarea> 
+                <h3 className="date">Add date</h3>
                 <input 
                 name="date"
                 value={this.state.date}
@@ -70,7 +82,7 @@ class Timeline extends React.Component{
                 className="date-input"
                 />
                 
-                <button className="timeline-button"type='submit' >Add Line</button>
+                <button className="timeline-button"type='submit'>Add Line</button>
                 
                 </form>
                 <h2 className='description'>Your Lines</h2>
@@ -78,12 +90,18 @@ class Timeline extends React.Component{
                 {this.props.lines ? this.props.lines.map(line=>{
                  return(
                  <div key={line.id} className="posts">
+                 <div className="line-date">
+                 {line.date}
+                 </div>
                  <div>
                  <p className="post">{line.line}</p>
+                 
                  </div>
                  <div className="update-delete">
-                 <p className="dropdown" >Update</p>
-                 <p>Delete</p>
+                 <Link to={`/updateline/${line.id}`}>
+                 <button className="update-btn">Update</button>
+                 </Link>
+                 <button className="delete-btn" onClick={()=>this.deletePost(line.id)}>Delete</button>
                  </div>
                  </div>
                  
@@ -109,4 +127,4 @@ const mapStateToProps =state =>({
 )
 
 
-export default connect(mapStateToProps,{addLine,getLines})(Timeline)
+export default connect(mapStateToProps,{addLine,getLines,deletePost})(Timeline)

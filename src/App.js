@@ -8,6 +8,7 @@ import {Route} from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import Timeline from './components/Timeline';
+import UpdateLine from './components/UpdateLine';
 import './App.css';
 
 
@@ -27,6 +28,7 @@ class App extends Component {
         <Route exact path="/" component={RegisterForm}/>
         <Route path="/login" component={LoginForm}/>
         <Route path="/timeline" component={Timeline}/>
+        <Route path="/updateline/:id" component={UpdateLine}/>
       </div>
     );
   }

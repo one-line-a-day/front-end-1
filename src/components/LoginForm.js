@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
         
     return (
       <div className="register-page">
-      <h1 className="title">ONE-LINE-A-DAY</h1>
+      <h1 className="title">One Line A Day</h1>
     <div className="form-container">
      <h2>Login Here!</h2>
      
@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
         <button type='submit'>Login</button>
         
           <Link className="link" to="/">
-          <h5>Dont have an Account? Sign up here.</h5>
+          Dont have an Account? Sign up here.
           </Link>
         
       </form>

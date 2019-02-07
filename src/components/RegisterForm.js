@@ -27,7 +27,7 @@ class RegisterForm extends React.Component {
           password:this.state.password,
           email:this.state.email
         }
-        this.props.addUser(newUser).then(()=>this.props.history.push('/login'));
+        this.props.addUser(newUser).then(()=>this.props.history.push('/timeline'));
         console.log(this.props)
     }
 
@@ -36,9 +36,9 @@ class RegisterForm extends React.Component {
         
     return (
       <div className="register-page">
-      <h1 className="title">ONE-LINE-A-DAY</h1>
+      <h1 className="title">One Line A Day</h1>
     <div className="form-container">
-     <h2>Register Here!</h2>
+     <h2 className="register-here">Register Here!</h2>
      
       <form className="input-fields" onSubmit ={this.addUser}> 
         <input 
@@ -64,7 +64,7 @@ class RegisterForm extends React.Component {
           value={this.state.email}
           name="email"
           type="text"
-          placeholder="Enter Email"
+          placeholder="Email"
           onChange={this.handleChanges}
           />
         
@@ -73,7 +73,7 @@ class RegisterForm extends React.Component {
         
         
         <Link className='link' to="/login">
-         <h5> Already have an Account? Login here.</h5>
+          Already have an Account? Login here.
           </Link> 
         
       </form>

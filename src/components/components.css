@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway%7CSource+Sans+Pro');
+
 *{
     box-sizing: border-box;
 }
@@ -14,152 +16,230 @@
   .input-fields{
     display: flex;
     flex-direction: column; 
-  width: 250px;
-  
-  margin: 10px auto;
+    width: 100%;
+    margin: 10px auto;
+    align-items: center;
   }
   .form-container{
-border:2px solid black;
+border:2px solid white;
 width: 50%;
-height: 400px;
+
 margin: 60px auto;
+background-color:white;
+border-radius:20px;
+font-family:'source sans pro';
+  }
+  .register-here{
+      color:black;
   }
 
   input{
       margin: 10px 0;
-      height: 15px;
+      height: 35px;
+      border:1px solid grey;
+      border-radius:5px;
+      width:70%;
+      font-size: 15px;
+      padding-left: 5px;
+  }
+  input:focus{
+      border:1px solid #472285;
+      outline:0;
+  }
+  input::placeholder{
+      padding-left:5px;
   }
   button{
       width:180px;
-      height: 30px;
       margin: 0 auto;
       border: 1px solid white;
       margin-top: 30px;
       border-radius: 5px;
-      font-size:20px;
-  }
-  h5{
-      color: white;
-  }
-  h2{
+      font-size:25px;
+      background-color:#472285;
       color:white;
+      padding:15px 0;
+      cursor:pointer;
+  }
+  
+  h2{
+      color:black;
       font-size: 30px;
-      
+      font-family:'source sans pro';
   }
   .link{
-      color:white;
+      color:#FD5D67;
+      text-decoration:none;
+      margin:25px 0;
+  }
+  .link:hover{
+      color:#472285;
+      text-decoration: underline;
   }
   .title{
       color:white;
       font-size: 70px;
+      font-family:'source sans pro';
   }
 
   .timeline-title{
       font-size: 50px;
       color:whitesmoke;
+      font-family:'source sans pro';
   }
   .header-container{
       display:flex;
-      justify-content: space-between;
-      align-items: baseline;
+      justify-content: space-around;
+      align-items: center;
       background-color:#472285;
+      font-family:'source sans pro';
   }
   .header-text{
       color:whitesmoke;
-      display:flex;
-
-      
+      font-size:20px;
+  }
+  .header-text:last-child{
+    color:#FD5D67;
+    font-weight:bold;
+    cursor:pointer;
+  }
+  .header-text:last-child:hover{
+      color:white;
+      text-decoration: underline;
   }
 
   .post{
       color:black;
-      text-align: center;
-        
+      text-align: left;
+      height:50px;
+      border-radius:10px;
+      padding:10px;
+      background-color:white;
+      font-size:18px;
+      margin:5px 0;
   }
   .post-container{
-      
+    background-color: #bcabc6;
     height: 100%;
-    width:100%;
+    width:90%;
     margin: 30px auto;
-    background-color:whitesmoke;
+    margin:15px auto;
+    padding:30px 0;
+    border-radius:20px;
+    border:1px solid #472285;
   }
+  .posts{
+    margin:5px auto;
+    border-bottom:2px dotted white;
+    padding-bottom:15px;
+    width:95%;
+   
+}
   .sub-container{
       display:flex;
-      width: 350px;
-      justify-content: space-evenly;
+      width: 20%;
+      justify-content: space-between;
   }
 
   .timeline-inputs{
       display:flex;
+      justify-content:space-around;
       flex-direction: column;
       border:1px solid #472285;
-      width: 600px;
+      width: 90%;
       margin:10px auto;
-      
+      border-radius:20px;
+      align-items: center;
+      background-color:#bcabc6;
   }
   .timeline-container{
-      background-color: whitesmoke;
+      background-color:white;
       height: 100%;
+      
   }
 
   
   .timeline-button{
-    width:120px;
-    height: 30px;
     background-color:#472285;
     border:1px solid white;
     color:whitesmoke;
+    padding:10px 0;
+    margin:10px 0 20px;
   }
-  .line-input{
+  .text-input{
       
-      height: 50px;
-      width: 400px;
+      height: 75px;
+      width: 80%;
       margin:10px auto;
-      display:flex;
-        text-align: center;
+    text-align: center;
+    border:1px solid #472285;
+    border-radius:10px;
+    font-size:15px;
+    padding:5px;
+    text-align:left;
+  }
+  .text-input::placeholder{
+      font-size:15px;
   }
   .date-input{
     width:150px;
     margin:10px auto;
-    text-align: center;
-    
+    border:1px solid #472285;
   }
 
-  .add-title{
-      text-align: center;
-  }
+  
   .error-msg{
       color: red;
   }
   .update-delete{
       display:flex;
       justify-content: space-between;
-      flex-wrap: nowrap;
-      text-align: end;
-      align-items: flex-start;
-      width: 500px;
       font-size:10px;
-      margin:0 auto;
-      
-     
-      
+      align-items: flex-start;
   }
 
-  .posts{
-      margin:30px auto;
-      border: 1px solid black;
-      background-color: white;
-      width:700px;
-      
-     
-  }
+
+  .add-title{
+    text-align: center;
+    font-family:'source sans pro';
+    margin-top:10px;
+    margin-bottom:0;
+    font-size:25px;
+    font-weight:normal;
+}
 
   .date{
       text-align: center;
+      font-family:'source sans pro';
+      margin:0;
+      padding:0;
+      font-size:25px;
+      font-weight:normal;
+      
   }
 
   .description{
       color:black;
       text-align: center;
   }
-  
+  .update-btn{
+      text-decoration: none;
+      padding: 5px 15px;
+      margin:0;
+      height:30px;
+      font-size:15px;
+      width:auto;
+  }
+  .delete-btn{
+      margin:0;
+      padding:5px 15px;
+      font-size:5px;
+      height:30px;
+      font-size:15px;
+      width:auto;
+  }
+  .line-date{
+      font-family:'source sans pro';
+      font-style: italic;
+      margin-left: 30px;
+  }

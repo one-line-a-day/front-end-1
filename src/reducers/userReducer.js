@@ -10,7 +10,16 @@
     LOGIN_SUCCESS,
     ADD_LINE,
     ADDED_LINE,
-    LOGIN_ERROR
+    LOGIN_ERROR,
+    GET_ONE_LINE,
+    GOT_ONE_LINE,
+    ONE_LINE_ERROR,
+    DELETE_LINE,
+    LINE_DELETED,
+    DELETE_ERROR,
+    UPDATE_LINE,
+    LINE_UPDATED,
+    UPDATE_ERROR
   } from '../actions';
 
   let initialState =
@@ -22,7 +31,8 @@
     addingFriend: false,
     loggedIn:false,
     addingLine:false,
-    username:''
+    username:'',
+    line:{}
   }
 
 
@@ -40,16 +50,34 @@
     case ADD_USER:
       return { ...state, addingFriend: true };
     case ADDED_USER:
-      return { ...state, addingFriend: false };
-      case ADD_LINE:
+      return { ...state, username:action.payload,addingFriend: false };
+    case ADD_LINE:
       return { ...state, addingLine: true };
     case ADDED_LINE:
       return { ...state,  addingLine: false };
-      case LOGIN_ATTEMPT:
+    case LOGIN_ATTEMPT:
       return { ...state, loggedIn: false };
     case LOGIN_SUCCESS:
       return { ...state, username:action.payload, loggedIn: true, error:'' };
-      case LOGIN_ERROR:
+    case GET_ONE_LINE:
+      return state;
+    case GOT_ONE_LINE:
+      return{...state, line: action.payload}
+    case ONE_LINE_ERROR:
+      return {...state, error:action.payload}
+    case UPDATE_LINE:
+      return state
+    case LINE_UPDATED:
+      return state
+    case UPDATE_ERROR:
+      return {...state, error:action.payload}
+      case DELETE_LINE:
+      return state
+    case LINE_DELETED:
+      return state
+    case DELETE_ERROR:
+      return {...state, error:action.payload}
+    case LOGIN_ERROR:
     return{...state, error:action.payload, fetchingData:false,addingFriend:false};
     case ERROR:
     return{...state,  fetchingData:false,addingFriend:false}
