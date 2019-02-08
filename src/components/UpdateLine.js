@@ -6,11 +6,11 @@ import { getLine,updateLine } from '../actions';
 
  class UpdateLine extends React.Component{
     state={
-        line:'',
-        id:''
+        line:null,
+        id:null
     }
 componentDidMount=()=>{
-    console.log('update',this.props.match.params.id)
+   
     this.props.getLine(this.props.match.params.id).then(()=>this.setState({
         line:this.props.line.line,
         id:this.props.line.id

@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+App Description:
+One Line A Day is an app that allows a user to register with a username, a password, and an email. You can then enter the site and you can add a post (a line) that is a log of something meaningful you experienced that day. If you want to write down something else that happened in the day, there is an edit button that lets you make changes to your post by clicking on it. You can also delete a post by clicking on the delete button. You can then log out of the main site and log back in with the same credentials you used to register and all the posts you ahve created will still be there.
+
 ## Available Scripts
 
 In the project directory, you can run:

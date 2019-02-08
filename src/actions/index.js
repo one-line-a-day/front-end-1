@@ -27,7 +27,7 @@ export const getUsers =()=>dispatch=>{
      axios
     .get('https://one-line-a-day-backend.herokuapp.com/api/users/testcall')
     .then(res=> {
-      console.log(`response: ${res.data}`)
+      
        dispatch({type:GOT_USERS, payload: res.data})
     })
     .catch(err=>{
@@ -42,7 +42,7 @@ export const getUsers =()=>dispatch=>{
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res=> {
-      console.log('getLines:', res.data)
+      
        dispatch({type:GOT_LINES, payload: res.data})
     })
     .catch(err=>{
@@ -57,7 +57,7 @@ export const getUsers =()=>dispatch=>{
      headers: { Authorization: localStorage.getItem("token") }
    })
    .then(res=> {
-     console.log('getLine:', res.data)
+     
       dispatch({type:GOT_ONE_LINE, payload: res.data})
    })
    .catch(err=>{
@@ -67,12 +67,12 @@ export const getUsers =()=>dispatch=>{
   
   export const addLine =(newLine)=>dispatch=>{
    dispatch({type:ADD_LINE})
-    axios
+    return axios
    .post('https://one-line-a-day-backend.herokuapp.com/api/lines',newLine,{
       headers: { Authorization: localStorage.getItem("token") }
    })
    .then(res=> {
-     console.log('lineResponse:',res.data)
+     
       dispatch({type:ADDED_LINE})
    })
    .then(()=>getLines()(dispatch))
@@ -88,7 +88,7 @@ export const getUsers =()=>dispatch=>{
       headers: { Authorization: localStorage.getItem("token") }
    })
    .then(res=> {
-     console.log('delete:',res.data)
+     
       dispatch({type:LINE_DELETED})
    })
    .then(()=>getLines()(dispatch))
@@ -104,7 +104,7 @@ export const getUsers =()=>dispatch=>{
     return axios
     .post('https://one-line-a-day-backend.herokuapp.com/api/users/register',newUser)
     .then(res=> {
-      console.log('registerResponse:' ,res.data)
+      
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.username);
        dispatch({type:ADDED_USER, payload:res.data.username})
@@ -121,7 +121,7 @@ export const getUsers =()=>dispatch=>{
    .then(res=> {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.username);
-     console.log('login:',res.data)
+     
       dispatch({type:LOGIN_SUCCESS,payload:res.data.username})
    })
    .then(()=>push('/timeline'))
@@ -137,7 +137,7 @@ export const getUsers =()=>dispatch=>{
       headers: { Authorization: localStorage.getItem("token") }
    })
    .then(res=> {
-     console.log('updateLine:',res.data)
+    
       dispatch({type:LINE_UPDATED})
    })
    .then(()=>getLines()(dispatch))

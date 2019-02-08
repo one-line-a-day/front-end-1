@@ -13,8 +13,8 @@ class Timeline extends React.Component{
     constructor(){
         super();
         this.state ={
-            line:'',
-            date:''
+            line:null,
+            date:null
         }
     }
         
@@ -27,8 +27,8 @@ class Timeline extends React.Component{
           line:this.state.line,
           date:this.state.date
         }
-        this.props.addLine(newLine)
-        console.log('timelineProps:',this.props)
+        this.props.addLine(newLine).then(() => this.setState({ line: '' ,date:''}));
+       
     }
 
     componentDidMount(){
@@ -46,7 +46,7 @@ class Timeline extends React.Component{
     }
    
     render(){
-       console.log(this.props)
+       
        const username=localStorage.getItem('username');
         return(
             <div className ="timeline-container">
@@ -86,28 +86,31 @@ class Timeline extends React.Component{
                 
                 </form>
                 <h2 className='description'>Your Lines</h2>
-               <div className='post-container'>
-                {this.props.lines ? this.props.lines.map(line=>{
-                 return(
-                 <div key={line.id} className="posts">
-                 <div className="line-date">
-                 {line.date}
-                 </div>
-                 <div>
-                 <p className="post">{line.line}</p>
-                 
-                 </div>
-                 <div className="update-delete">
-                 <Link to={`/updateline/${line.id}`}>
-                 <button className="update-btn">Update</button>
-                 </Link>
-                 <button className="delete-btn" onClick={()=>this.deletePost(line.id)}>Delete</button>
-                 </div>
-                 </div>
-                 
-                 )
-                }):null} 
-                </div>
+               
+                {this.props.lines.length > 0 && 
+                    <div className='post-container'>
+                        { this.props.lines.map(line=>{
+                        return(
+                        <div key={line.id} className="posts">
+                        <div className="line-date">
+                        {line.date}
+                        </div>
+                        <div>
+                        <p className="post">{line.line}</p>
+                        
+                        </div>
+                        <div className="update-delete">
+                        <Link to={`/updateline/${line.id}`}>
+                        <button className="update-btn">Update</button>
+                        </Link>
+                        <button className="delete-btn" onClick={()=>this.deletePost(line.id)}>Delete</button>
+                        </div>
+                        </div>
+                        
+                        )
+                        })} 
+                    </div>
+                }
 
                 
 

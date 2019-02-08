@@ -31,8 +31,8 @@
     addingFriend: false,
     loggedIn:false,
     addingLine:false,
-    username:'',
-    line:{}
+    username:null,
+    line:''
   }
 
 
