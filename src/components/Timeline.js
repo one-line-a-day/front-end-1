@@ -8,6 +8,8 @@ import { deletePost } from '../actions';
 
 
 
+
+
 class Timeline extends React.Component{
     
     constructor(){
@@ -63,7 +65,7 @@ class Timeline extends React.Component{
                 </div>
 
                 <form className="timeline-inputs" onSubmit={this.addLine}>
-                <h1 className="add-title">Add new line</h1>
+                <h1 className="add-title">Add New Line</h1>
                 <textarea
                 name="line"
                 value={this.state.line}
@@ -85,7 +87,7 @@ class Timeline extends React.Component{
                 <button className="timeline-button"type='submit'>Add Line</button>
                 
                 </form>
-                <h2 className='description'>Your Lines</h2>
+                <h2 className='description'>Your Lines-Your History</h2>
                
                 {this.props.lines.length > 0 && 
                     <div className='post-container'>
@@ -103,7 +105,8 @@ class Timeline extends React.Component{
                         <Link to={`/updateline/${line.id}`}>
                         <button className="update-btn">Update</button>
                         </Link>
-                        <button className="delete-btn" onClick={()=>this.deletePost(line.id)}>Delete</button>
+                        <button className="delete-btn" onClick={()=>this.deletePost(line.id)}>Delete</button> 
+                        
                         </div>
                         </div>
                         

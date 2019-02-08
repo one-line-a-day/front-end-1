@@ -28,7 +28,7 @@ class RegisterForm extends React.Component {
           email:this.state.email
         }
         this.props.addUser(newUser).then(()=>this.props.history.push('/timeline'));
-        console.log(this.props)
+       
     }
 
 
