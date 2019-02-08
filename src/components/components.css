@@ -224,11 +224,11 @@ font-family:'source sans pro';
   .description{
       background-color: #472285;
       text-align:center;
-      font-size:40px;
+      font-size:100px;
       width:auto;
       font-family:'source sans pro';
       color:white;
-      height: 100px;
+      height: 150px;
   }
   .update-btn{
       text-decoration: none;
